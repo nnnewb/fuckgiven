@@ -2,8 +2,8 @@
 #if !defined(MY_APP_H)
 #define MY_APP_H
 
-#include <gtk/gtk.h>
 #include <adwaita.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 

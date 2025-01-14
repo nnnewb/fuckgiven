@@ -6,7 +6,7 @@ struct _MyWindow {
   GtkApplicationWindow parent;
 };
 
-G_DEFINE_FINAL_TYPE(MyWindow, my_window, GTK_TYPE_APPLICATION_WINDOW)
+G_DEFINE_FINAL_TYPE(MyWindow, my_window, ADW_TYPE_APPLICATION_WINDOW)
 
 static void on_button_click(GtkEntry *entry, MyWindow *self) {
   g_print("clicked\n");

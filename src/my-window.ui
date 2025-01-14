@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <template class="MyWindow" parent="GtkApplicationWindow">
+    <template class="MyWindow" parent="AdwApplicationWindow">
         <property name="title">Fucks Given</property>
         <property name="default-height">400</property>
         <property name="default-width">300</property>
