@@ -12,7 +12,7 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
 
   GtkWidget *window;
   GtkWidget *button;
-  GtkWidget *box;
+  GtkWidget *vbox, *hbox;
 
   window = gtk_application_window_new(app);
   gtk_window_set_title(GTK_WINDOW(window), "hello");
@@ -22,12 +22,19 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
   g_signal_connect(button, "clicked", G_CALLBACK(on_clicked), NULL);
   g_signal_connect_swapped(button, "clicked", G_CALLBACK(gtk_window_destroy), window);
 
-  box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+  hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_box_append(GTK_BOX(hbox), gtk_label_new("horizontal label 1"));
+  gtk_box_append(GTK_BOX(hbox), gtk_label_new("horizontal label 2"));
+  gtk_box_set_homogeneous(GTK_BOX(hbox), TRUE);
+
+  vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
   gtk_widget_set_halign(button, GTK_ALIGN_CENTER);
   gtk_widget_set_valign(button, GTK_ALIGN_CENTER);
-  gtk_box_append(GTK_BOX(box), button);
+  gtk_box_append(GTK_BOX(vbox), button);
+  gtk_box_append(GTK_BOX(vbox), hbox);
 
-  gtk_window_set_child(GTK_WINDOW(window), box);
+
+  gtk_window_set_child(GTK_WINDOW(window), vbox);
   gtk_window_present(GTK_WINDOW(window));
 }
 
