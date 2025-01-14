@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/site/weakptr/fucksgiven">
+        <file preprocess="xml-stripblanks">my-window.ui</file>
+    </gresource>
+</gresources>

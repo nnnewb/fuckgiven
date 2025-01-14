@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <object id="main_window" class="GtkApplicationWindow">
+    <template class="MyWindow" parent="GtkApplicationWindow">
         <property name="title">Fucks Given</property>
         <property name="default-height">400</property>
         <property name="default-width">300</property>
@@ -11,9 +11,10 @@
                 <child>
                     <object id="button" class="GtkButton">
                         <property name="label">click me</property>
+                        <signal name="clicked" handler="on_button_click"/>
                     </object>
                 </child>
             </object>
         </child>
-    </object>
+    </template>
 </interface>
