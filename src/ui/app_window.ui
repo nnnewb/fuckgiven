@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <object id="main_window" class="GtkApplicationWindow">
+        <property name="title">Fucks Given</property>
+        <property name="default-height">400</property>
+        <property name="default-width">300</property>
+
+        <child>
+            <object id="vbox" class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                    <object id="button" class="GtkButton">
+                        <property name="label">click me</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
+</interface>

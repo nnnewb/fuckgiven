@@ -10,32 +10,33 @@ static void on_clicked(GtkButton *button, gpointer user_data) {
 static void on_activate(GtkApplication *app, gpointer user_data) {
   (void)user_data;
 
-  GtkWidget *window;
-  GtkWidget *button;
-  GtkWidget *vbox, *hbox;
+  GError *err = NULL;
+  GtkBuilder *builder;
+  builder = gtk_builder_new();
+  if (!gtk_builder_add_from_file(builder, "src/ui/app_window.ui", &err)) {
+    g_error(err != NULL ? err->message : "no error");
+    g_error_free(err);
+    err = NULL;
+    g_object_unref(builder);
+    return;
+  }
 
-  window = gtk_application_window_new(app);
-  gtk_window_set_title(GTK_WINDOW(window), "hello");
-  gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
+  GObject *window;
+  GObject *button;
 
-  button = gtk_button_new_with_label("Hello, World!");
+  window = gtk_builder_get_object(builder, "main_window");
+  g_return_if_fail(window != NULL);
+
+  gtk_window_set_application(GTK_WINDOW(window), app);
+
+  button = gtk_builder_get_object(builder, "button");
+  g_return_if_fail(button != NULL);
+
   g_signal_connect(button, "clicked", G_CALLBACK(on_clicked), NULL);
   g_signal_connect_swapped(button, "clicked", G_CALLBACK(gtk_window_destroy), window);
 
-  hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
-  gtk_box_append(GTK_BOX(hbox), gtk_label_new("horizontal label 1"));
-  gtk_box_append(GTK_BOX(hbox), gtk_label_new("horizontal label 2"));
-  gtk_box_set_homogeneous(GTK_BOX(hbox), TRUE);
-
-  vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-  gtk_widget_set_halign(button, GTK_ALIGN_CENTER);
-  gtk_widget_set_valign(button, GTK_ALIGN_CENTER);
-  gtk_box_append(GTK_BOX(vbox), button);
-  gtk_box_append(GTK_BOX(vbox), hbox);
-
-
-  gtk_window_set_child(GTK_WINDOW(window), vbox);
   gtk_window_present(GTK_WINDOW(window));
+  g_object_unref(builder);
 }
 
 int main(int argc, char *argv[]) {
