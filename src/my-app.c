@@ -7,7 +7,7 @@ struct _MyApp {
   GtkApplication parent;
 };
 
-G_DEFINE_FINAL_TYPE(MyApp, my_app, GTK_TYPE_APPLICATION);
+G_DEFINE_FINAL_TYPE(MyApp, my_app, ADW_TYPE_APPLICATION);
 
 static void my_app_activate(GApplication *app) {
   MyWindow *window = my_window_new(MY_APP(app));
@@ -21,5 +21,5 @@ static void my_app_class_init(MyAppClass *klass) {
 }
 
 MyApp *my_app_new(void) {
-  return g_object_new(MY_APP_TYPE, "application-id", "org.gtk.example", NULL);
+  return g_object_new(MY_TYPE_APP, "application-id", "org.gtk.example", NULL);
 }

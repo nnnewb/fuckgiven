@@ -23,5 +23,5 @@ static void my_window_init(MyWindow *self) {
 }
 
 MyWindow *my_window_new(MyApp *app) {
-  return g_object_new(MY_WINDOW_TYPE, "application", app, NULL);
+  return g_object_new(MY_TYPE_WINDOW, "application", app, NULL);
 }
