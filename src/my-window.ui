@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
+    <requires lib="gtk" version="4.16" />
+
     <template class="MyWindow" parent="AdwApplicationWindow">
         <property name="title">Fucks Given</property>
         <property name="default-height">400</property>
@@ -11,7 +13,7 @@
                 <child>
                     <object id="button" class="GtkButton">
                         <property name="label">click me</property>
-                        <signal name="clicked" handler="on_button_click"/>
+                        <signal name="clicked" handler="on_button_click" />
                     </object>
                 </child>
             </object>
