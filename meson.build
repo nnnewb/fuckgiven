@@ -1,3 +1,4 @@
 project('fuckgiven', 'c')
-gtk_deps = dependency('gtk4')
-executable('fuckgiven', 'src/main.c', dependencies: gtk_deps)
+deps = [dependency('gtk4')]
+cflags = [ '-Wall', '-Wextra', '-Wpedantic', '-Werror' ]
+executable('fuckgiven', 'src/main.c', c_args: [], dependencies: deps)
