@@ -1,0 +1,39 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $MyWindow: Adw.ApplicationWindow {
+    width-request: 280;
+    height-request: 200;
+    default-width: 800;
+    default-height: 800;
+    content: Adw.ToolbarView {
+        [top] Adw.HeaderBar {
+            title-widget: Adw.WindowTitle {
+                title: "fucks given";
+            };
+        }
+
+        Adw.Clamp {
+            Box {
+                orientation: vertical;
+                spacing: 17;
+
+                Entry {
+                    secondary-icon-name: "list-add";
+                    placeholder-text: "Fuuuuuuuuuck!";
+                }
+
+                ListBox {
+                    selection-mode: none;
+                    styles ["boxed-list"]
+                    Adw.ActionRow {
+                        title: "row 1";
+                    }
+                    Adw.ActionRow {
+                        title: "row 2";
+                    }
+                }
+            }
+        }
+    };
+}

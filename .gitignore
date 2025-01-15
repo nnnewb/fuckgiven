@@ -56,3 +56,5 @@ builddir/
 .vscode/
 .idea/
 .vs/
+
+/subprojects/blueprint-compiler
