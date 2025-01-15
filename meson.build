@@ -1,7 +1,7 @@
 project('fucks_given', 'c')
 
 gnome = import('gnome')
-deps = [dependency('gtk4'),dependency('libadwaita-1')]
+deps = [dependency('gtk4'),dependency('libadwaita-1'),dependency('sqlite3')]
 cflags = [ '-Wall', '-Wextra', '-Wpedantic', '-Werror' ]
 
 blueprints = custom_target('blueprints',

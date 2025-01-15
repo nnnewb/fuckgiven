@@ -58,3 +58,5 @@ builddir/
 .vs/
 
 /subprojects/blueprint-compiler
+/subprojects/sqlite-amalgamation-3470200
+/subprojects/packagecache
