@@ -8,14 +8,8 @@ struct _MyWindow {
 
 G_DEFINE_FINAL_TYPE(MyWindow, my_window, ADW_TYPE_APPLICATION_WINDOW)
 
-static void on_button_click(GtkEntry *entry, MyWindow *self) {
-  g_print("clicked\n");
-  gtk_window_destroy(GTK_WINDOW(self));
-}
-
 static void my_window_class_init(MyWindowClass *klass) {
   gtk_widget_class_set_template_from_resource(GTK_WIDGET_CLASS(klass), "/site/weakptr/fucksgiven/my-window.ui");
-  gtk_widget_class_bind_template_callback(GTK_WIDGET_CLASS(klass), on_button_click);
 }
 
 static void my_window_init(MyWindow *self) {

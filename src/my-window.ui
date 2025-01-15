@@ -1,22 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-    <requires lib="gtk" version="4.16" />
+    <requires lib="gtk" version="4.16"/>
 
     <template class="MyWindow" parent="AdwApplicationWindow">
-        <property name="title">Fucks Given</property>
-        <property name="default-height">400</property>
-        <property name="default-width">300</property>
-
+        <property name="width-request">280</property>
+        <property name="height-request">200</property>
+        <property name="default-width">800</property>
+        <property name="default-height">800</property>
         <child>
-            <object id="vbox" class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
-                    <object id="button" class="GtkButton">
-                        <property name="label">click me</property>
-                        <signal name="clicked" handler="on_button_click" />
-                    </object>
-                </child>
+            <object class="AdwBreakpoint">
+                <condition>max-width: 400sp</condition>
+                <setter object="split_view" property="collapsed">True</setter>
             </object>
         </child>
+
+        <property name="content">
+            <object class="AdwNavigationSplitView" id="split_view">
+                <!-- Sidebar -->
+                <property name="sidebar">
+                    <object class="AdwNavigationPage">
+                        <property name="title">Sidebar</property>
+                    </object>
+                </property>
+
+                <!-- Content -->
+                <property name="content">
+                    <object class="AdwNavigationPage">
+                        <property name="title">Content</property>
+                        <property name="child">
+                            <object class="AdwToolbarView">
+                                <child type="top">
+                                    <object class="AdwHeaderBar">
+                                        <property name="title-widget">
+                                            <object class="AdwWindowTitle">
+                                                <property name="title">Fucks Given</property>
+                                            </object>
+                                        </property>
+                                    </object>
+                                </child>
+                            </object>
+                        </property>
+                    </object>
+                </property>
+            </object>
+        </property>
     </template>
 </interface>
