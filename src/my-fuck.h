@@ -11,7 +11,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE(MyFuck, my_fuck, MY, FUCK, AdwActionRow)
 
-MyFuck* my_fuck_new(void);
+MyFuck *my_fuck_new(void);
 
 G_END_DECLS
 

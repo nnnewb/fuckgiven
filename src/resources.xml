@@ -2,5 +2,6 @@
 <gresources>
     <gresource prefix="/site/weakptr/fucksgiven">
         <file preprocess="xml-stripblanks">src/my-window.ui</file>
+        <file preprocess="xml-stripblanks">src/my-fuck.ui</file>
     </gresource>
 </gresources>

@@ -8,6 +8,7 @@ blueprints = custom_target('blueprints',
   input: files(
     # LIST YOUR BLUEPRINT FILES HERE
     'src/my-window.blp',
+    'src/my-fuck.blp',
   ),
   output: '.',
   command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
@@ -15,4 +16,4 @@ blueprints = custom_target('blueprints',
 
 resources = gnome.compile_resources('resources', 'src/resources.xml', dependencies: blueprints)
 
-executable('fucks_given', 'src/main.c', 'src/my-app.c', 'src/my-window.c', resources, c_args: [], dependencies: deps)
+executable('fucks_given', 'src/main.c', 'src/my-app.c', 'src/my-window.c', 'src/my-fuck.c', resources, c_args: [], dependencies: deps)
